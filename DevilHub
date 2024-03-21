@@ -273,7 +273,7 @@ local SaveManager = {} do
 			local success, err = self:Save(name)
 			if not success then
 				return self.Library:Notify({
-					Title = "Interface",
+					Title = "DevilHub",
 					Content = "Config loader",
 					SubContent = "Failed to overwrite config: " .. err,
 					Duration = 7
