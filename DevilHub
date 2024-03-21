@@ -293,23 +293,8 @@ local SaveManager = {} do
 			SaveManager.Options.SaveManager_ConfigList:SetValue(nil)
 		end})
 
-		local AutoloadButton
-		AutoloadButton = section:AddButton({Title = "Set as autoload", Description = "Current autoload config: none", Callback = function()
-			local name = SaveManager.Options.SaveManager_ConfigList.Value
-			writefile(self.Folder .. "/settings/autoload.txt", name)
-			AutoloadButton:SetDesc("Current autoload config: " .. name)
-			self.Library:Notify({
-				Title = "DevilHub",
-				Content = "Config loader",
-				SubContent = string.format("Set %q to auto load", name),
-				Duration = 7
-			})
-		end})
+		
 
-		if isfile(self.Folder .. "/settings/autoload.txt") then
-			local name = readfile(self.Folder .. "/settings/autoload.txt")
-			AutoloadButton:SetDesc("Current autoload config: " .. name)
-		end
 
 		SaveManager:SetIgnoreIndexes({ "SaveManager_ConfigList", "SaveManager_ConfigName" })
 	end
